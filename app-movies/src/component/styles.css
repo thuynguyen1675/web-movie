@@ -1,6 +1,6 @@
 .input {
   display: flex;
-  width: 95%;
+  width: 100%;
   position: relative;
   align-items: center;
 }
@@ -12,7 +12,10 @@
   font-size: 25px;
   border: none;
   transition: 0.2s;
-  box-shadow: inset 0 0 5px black;
+  box-shadow: inset 0 0 2px rgb(106, 106, 106);
+}
+.input__box:focus {
+  outline: none;
 }
 .input_submit {
   position: absolute;
@@ -23,19 +26,96 @@
   right: 0px;
   border: none;
   font-size: 15px;
-  background-color: #2f74c0;
+  background-color: #e86664;
   color: white;
   transition: 0.2s all;
-  box-shadow: 0 0 10px black;
-}
-@media (max-width: 700px) {
-  .input {
-    width: 95%;
-  }
+  box-shadow: 0 0 10px rgb(71, 71, 71);
 }
 .overview {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+.wrapImg {
+  border: 1px solid #dcdbdb;
+  border-radius: 12px;
+  width: -moz-fit-content;
+  width: fit-content;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  width: -moz-fit-content;
+  padding: 10px;
+  background-color: #fff;
+  margin: auto;
+}
+.titleDetail {
+  font-size: 25px !important;
+  font-weight: bold !important;
+}
+.containerImg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card_movie {
+  background: #fff;
+  border: 1px solid #e3e3e3 !important;
+  box-sizing: border-box;
+  border-radius: 12px !important;
+  height: 370px;
+  padding: 10px 0;
+}
+.card_movie:hover {
+  box-shadow: inset 0 0 2px rgb(243, 184, 184) !important;
+  border-color: #f59998 !important;
+}
+.wrap_link {
+  padding: 15px;
+  background-color: #e86664;
+}
+.link {
+  color: #fff !important;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.link_active {
+  color: #fff !important;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: underline !important;
+}
+.link:hover {
+  text-decoration: underline;
+}
+.tab_bar {
+  background-image: linear-gradient(to right, #e86664, #fce9e9);
+  display: flex;
+  margin: 25px 0;
+}
+.wrap_pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+}
+.wrapper {
+  background: #fce9e9;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.cardMedia,
+.imgDetail {
+  object-fit: contain !important;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

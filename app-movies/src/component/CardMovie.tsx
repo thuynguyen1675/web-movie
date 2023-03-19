@@ -7,22 +7,29 @@ import {
   CardMedia,
   Typography,
 } from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
 import { img_prefix } from "../client/index";
 import { Movie } from "../model/index";
 import "./styles.css";
 
-const CardMovie = (props: Movie) => {
-  const { poster_path, title, overview, release_date } = props;
+const CardMovie: React.FC<Movie> = (props) => {
+  const navigate = useNavigate();
+  const { id, poster_path, title, overview, release_date } = props;
   return (
     <Grid item lg={3} xs={6} sm={4}>
-      <Card style={{ height: "400px", padding: "10px 0" }}>
+      <Card
+        className="card_movie"
+        onClick={() => {
+          navigate(`/detail-movie/${id}`);
+        }}
+      >
         <CardActionArea style={{ display: "block" }}>
           <CardMedia
             component="img"
             height="200"
             image={img_prefix + poster_path}
             alt="green iguana"
-            style={{ objectFit: "contain" }}
+            className="cardMedia"
           />
           <CardContent>
             <Typography style={{ fontSize: "16px", fontWeight: "bold" }}>

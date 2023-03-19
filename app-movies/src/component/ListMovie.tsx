@@ -3,12 +3,36 @@ import Pagination from "@material-ui/lab/Pagination";
 import CardMovie from "./CardMovie";
 import { Movie, ResultMovies } from "../model/index";
 import React from "react";
+import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
+import "./styles.css";
 
 const ListMovie = (props: ResultMovies) => {
-  const { results, total_pages } = props;
+  const { results, total_pages, total_results } = props;
+  const pageScroll = React.useRef(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const handleChange = (e: React.ChangeEvent<unknown>, page: number) => {
+    e.preventDefault();
+    const query = searchParams.get("query");
+    let newSearch: string = "";
+    if (location.pathname.includes("search")) {
+      newSearch = `?query=${query}` + `&page=${page}`;
+    } else {
+      newSearch = `?page=${page}`;
+    }
+    window.scrollTo({
+      top: 0,
+      //   behavior: "smooth",
+    });
+    navigate({
+      pathname: location.pathname,
+      search: newSearch,
+    });
+  };
   return (
     <>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} ref={pageScroll}>
         {results.map((movie) => {
           const movieInfo: Movie = {
             id: movie.id,
@@ -22,16 +46,16 @@ const ListMovie = (props: ResultMovies) => {
           return <CardMovie key={movie.id} {...movieInfo} />;
         })}
       </Grid>
-      <Box
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "30px 0",
-        }}
-      >
-        <Pagination count={total_pages} variant="outlined" />
-      </Box>
+      {total_results > 0 && (
+        <Box className="wrap_pagination">
+          <Pagination
+            count={total_pages}
+            variant="outlined"
+            onChange={handleChange}
+            color="secondary"
+          />
+        </Box>
+      )}
     </>
   );
 };

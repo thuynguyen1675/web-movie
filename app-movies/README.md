@@ -1,3 +1,29 @@
+# web-movie
+
+## features of app implemented:
+
+- User can view a list of movies currently playing in theaters. Poster images load asynchronously.
+- Add a tab bar for Now Playing and Top Rated movies.
+- Add a search bar.
+- User can view movie details by tapping on a cell.
+- User sees loading state while waiting for the API.
+- User sees an error message when there is a network error.
+- Simple responsive.
+- All images fade in.
+- Customize the highlight and selection effect of the cell.
+
+## link video walkthrough
+
+https://drive.google.com/file/d/1LuzZG9Rvr4TcZ5ZbJf5KK7OV4oaWCfbN/view?usp=sharing
+
+## steps to run app:
+
+1. Clone source
+2. Run: cd app-movies
+3. Install node_modules: npm i | yarn install
+4. Runs the app in the development mode: npm start | yarn start
+   Open (http://localhost:3000) to view it in the browser.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

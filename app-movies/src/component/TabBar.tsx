@@ -1,37 +1,32 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Box, Link } from "@material-ui/core";
+import { useLocation } from "react-router-dom";
+import "./styles.css";
 
+interface Props {
+  title: string;
+  linkTo: string;
+}
+const TabItem = ({ title, linkTo }: Props) => {
+  const location = useLocation();
+  const isActive = location.pathname === linkTo;
+  return (
+    <Box className="wrap_link">
+      <Link
+        href={linkTo}
+        underline="none"
+        className={isActive ? "link_active" : "link"}
+      >
+        {title}
+      </Link>
+    </Box>
+  );
+};
 const TabBar = () => {
   return (
-    <Box
-      style={{
-        display: "flex",
-        backgroundColor: "orange",
-        margin: "25px 0",
-      }}
-    >
-      <Box
-        style={{
-          padding: "15px",
-          backgroundColor: "pink",
-        }}
-      >
-        <Link href="/" underline="none" style={{ color: "#000" }}>
-          Top Rated Movies
-        </Link>
-      </Box>
-      <Box
-        style={{
-          padding: "15px",
-          backgroundColor: "pink",
-          fontSize: "16px",
-        }}
-      >
-        <Link href="/now-playing" underline="none" style={{ color: "#000" }}>
-          Movies Now Playing
-        </Link>
-      </Box>
+    <Box className="tab_bar">
+      <TabItem title="Top Rated" linkTo="/" />
+      <TabItem title="Now Playing" linkTo="/now-playing" />
     </Box>
   );
 };
