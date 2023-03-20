@@ -21,7 +21,8 @@ https://drive.google.com/file/d/1LuzZG9Rvr4TcZ5ZbJf5KK7OV4oaWCfbN/view?usp=shari
 1. Clone source
 2. Run: cd app-movies
 3. Install node_modules: npm i | yarn install
-4. Runs the app in the development mode: npm start | yarn start
+   (incase you cannot install because of peer dependency, please run cmd: npm install --legacy-peer-deps)
+5. Runs the app in the development mode: npm start | yarn start
    Open (http://localhost:3000) to view it in the browser.
 
 # Getting Started with Create React App
